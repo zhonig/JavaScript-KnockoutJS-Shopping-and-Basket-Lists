@@ -1,0 +1,35 @@
+﻿body {
+  font-family: Helvetica, Arial, sans-serif; }
+  body .row {
+    padding: 10px; }
+    body .row label {
+      display: inline-block;
+      width: 140px;
+      text-align: left;
+      font-weight: bold; }
+    body .row .error-message {
+      color: #FA3636; }
+    body .row table {
+      width: 640px;
+      color: #333333;
+      border-collapse: collapse;
+      border-spacing: 0; }
+      body .row table td, body .row table th {
+        height: 30px;
+        border: 1px solid transparent;
+        transition: all 0.3s; }
+      body .row table thead tr th {
+        background: #DFDFDF;
+        font-weight: bold; }
+      body .row table tbody tr td {
+        background: #FAFAFA;
+        text-align: center; }
+      body .row table tbody tr:nth-child(even) td {
+        background: #F1F1F1; }
+      body .row table tbody tr:nth-child(odd) td {
+        background: #FEFEFE; }
+      body .row table tbody tr:hover td {
+        background: #FFFF00; }
+    body .row.inline {
+      display: inline-block;
+      width: 48%; }

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta id="viewport" name="viewport" content="width=device-width"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+        <link rel="apple-touch-icon" href="images/linux-icon-19.png" />
+        <link rel="icon" type="image/x-icon" href="images/Dakirby309-Simply-Styled-OS-Linux.ico" />
+		<link rel="stylesheet" href="css/style.min.css" type="text/css"/>
+        <script type="text/javascript" src="js/lib/knockout-3.4.2.js"></script>
+        <title>The Grocery List</title>
+	</head>
+	<body>
+		<h2>The Grocery List</h2>
+		<div class="row">
+			<span>Please fill out fields below:</span>
+		</div>
+		<div class="row">
+			<label>*Food Name:</label>
+			<input type="text" placeholder="Insert Food Name Here" data-bind="value: foodName, valueUpdate: 'afterkeydown', event: { keyup: validateFoodName }"></input>
+			<span class="error-message" data-bind="text: foodNameErrMsg"></span>
+		</div>
+		<div class="row">
+			<label>*Food Quantity:</label>
+			<input type="number" placeholder="Insert Food Quantity Here" data-bind="value: foodQuantity, valueUpdate: 'afterkeydown', event: { keyup: validateFoodQuantity }"></input>
+			<span class="error-message" data-bind="text: foodQuantityErrMsg"></span>
+		</div>
+		<div class="row">
+			<button data-bind="click: addToShoppingList">Add to Shopping List</button>
+			<button data-bind="click: emptyBasket">Empty Basket</button>
+		</div>
+		<hr />
+		<div class="row inline">
+			<label>Shopping List:</label>
+			<table>
+				<thead>
+					<tr>
+						<th>Food Name</th>
+						<th>Food Quantity</th>
+						<th>Basket Button Actions</th>
+					</tr>
+				</thead>
+				<tbody data-bind="foreach: shoppingList">
+					<tr>
+						<td data-bind="text: foodName"></td>
+						<td data-bind="text: foodQuantity"></td>
+						<td>
+							<button data-bind="visible: !inBasket(), click: addToBasket">Add To Basket</button>
+							<button data-bind="visible: inBasket, click: removeFromBasket">Remove From Basket</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="row inline">
+			<label>Basket List:</label>
+			<table>
+				<thead>
+					<tr>
+						<th>Food Name</th>
+						<th>Food Quantity</th>
+					</tr>
+				</thead>
+				<tbody data-bind="foreach: shoppingList">
+					<tr data-bind="if: inBasket">
+						<td data-bind="text: foodName"></td>
+						<td data-bind="text: foodQuantity"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<script type="text/javascript" src="js/main.js"></script>
+	</body>
+</html>
